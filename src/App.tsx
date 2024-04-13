@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Nav from './Nav';
+import Dashboard from './Dashboard';
+import Max from './Max';
+import Maisy from './Maisy';
+import Marcel from './Marcel';
+import 'bulma/css/bulma.min.css';
 
-function App() {
+const App: React.FC = () => {
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+
+  const connectWallet = async () => {
+    if (typeof window !== 'undefined' && window.ethereum) {
+      try {
+        // Request access to MetaMask
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+        // Get the selected wallet address
+        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        setWalletAddress(accounts[0]);
+      } catch (error) {
+        console.error('Failed to connect wallet:', error);
+      }
+    } else {
+      console.error('MetaMask not detected');
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Nav connectWallet={connectWallet} walletAddress={walletAddress} />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/max" element={<Max />} />
+          <Route path="/maisy" element={<Maisy />} />
+          <Route path="/marcel" element={<Marcel />} />
+          {/* Add more routes for other components */}
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
