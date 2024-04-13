@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faRecycle, faTrophy, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faRecycle, faTrophy, faArrowRight, faTruckField } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
             <div className="card">
               <div className="card-content">
                 <p className="title">
-                  <FontAwesomeIcon icon={faBook} /> Max
+                  <FontAwesomeIcon icon={faTruckField} /> Max
                 </p>
                 <p className="subtitle">Your supplies, measure and track your supplies.</p>
                 <Link to="/max" className="button is-primary">

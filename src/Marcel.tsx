@@ -10,6 +10,7 @@ const Marcel: React.FC = () => {
         <Link to="/" className="button is-link is-light">
           <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Dashboard
         </Link>
+        <br></br>
         <h1 className="title">Marcel</h1>
         <div className="columns">
           <div className="column">
