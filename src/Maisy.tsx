@@ -10,6 +10,7 @@ const Maisy: React.FC = () => {
         <Link to="/" className="button is-link is-light">
           <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Dashboard
         </Link>
+        <br></br>
         <h1 className="title">Maisy</h1>
         <div className="columns">
           <div className="column">
