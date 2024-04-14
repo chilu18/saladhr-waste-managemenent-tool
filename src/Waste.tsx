@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBalanceScale, faKeyboard, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { mint_and_send_tokens, calculate_num_tokens } from './mint-and-send-tokens';
+import { ethers } from 'ethers';
 
 const Waste: React.FC = () => {
   const [isScaleInput, setIsScaleInput] = useState(true);
@@ -9,6 +11,9 @@ const Waste: React.FC = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [manualWeight, setManualWeight] = useState('');
+  const [inputWeight, setInputWeight] = useState('');
+  const [calculatedTokens, setCalculatedTokens] = useState(0);
+  const [walletAddress, setWalletAddress] = useState('');
 
   const fetchScaleWeight = async () => {
     try {
@@ -16,6 +21,7 @@ const Waste: React.FC = () => {
       const response = await fetch('API_ENDPOINT');
       const data = await response.json();
       setScaleWeight(data.weight);
+      setInputWeight(data.weight.toString());
     } catch (error) {
       console.error('Failed to fetch scale weight:', error);
     }
@@ -33,15 +39,40 @@ const Waste: React.FC = () => {
     setName('');
     setDescription('');
     setManualWeight('');
+    setInputWeight('');
+  };
+
+  const calculateTokens = () => {
+    const inWeight = parseFloat(inputWeight);
+    const outWeight = parseFloat(manualWeight);
+    const tokens = calculate_num_tokens(inWeight, outWeight);
+    setCalculatedTokens(tokens);
+  };
+
+  const completeTransaction = async () => {
+    if (calculatedTokens > 0) {
+      try {
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const provider = await new ethers.BrowserProvider(window.ethereum);
+        const signer = await provider.getSigner();
+        const walletAddress = await signer.getAddress();
+        setWalletAddress(walletAddress);
+        await mint_and_send_tokens(calculatedTokens, walletAddress);
+        console.log('Tokens sent successfully');
+      } catch (error) {
+        console.error('Failed to send tokens:', error);
+      }
+    }
   };
 
   return (
     <div className="container">
-        <Link to="/" className="button is-link is-light">
-          <FontAwesomeIcon icon={faTimes} /> Back to Dashboard
-        </Link>
+      <Link to="/maisy" className="button is-link is-light">
+        <FontAwesomeIcon icon={faTimes} /> Back to Maisy
+      </Link>
       <h1 className="title">
-      <FontAwesomeIcon icon={faTrash} />Waste</h1>
+        <FontAwesomeIcon icon={faTrash} /> Waste
+      </h1>
       <div className="field">
         <input
           id="switchInputMode"
@@ -62,7 +93,7 @@ const Waste: React.FC = () => {
             <input
               className="input"
               type="text"
-              placeholder="Enter waste name"
+              placeholder="Enter name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -74,11 +105,24 @@ const Waste: React.FC = () => {
           <div className="control">
             <textarea
               className="textarea"
-              placeholder="Enter waste description"
+              placeholder="Enter description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
             ></textarea>
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Input Weight</label>
+          <div className="control">
+            <input
+              className="input"
+              type="number"
+              placeholder="Enter input weight"
+              value={inputWeight}
+              onChange={(e) => setInputWeight(e.target.value)}
+              required
+            />
           </div>
         </div>
         {isScaleInput ? (
@@ -98,7 +142,7 @@ const Waste: React.FC = () => {
               <input
                 className="input"
                 type="number"
-                placeholder="Enter waste weight"
+                placeholder="Enter weight"
                 value={manualWeight}
                 onChange={(e) => setManualWeight(e.target.value)}
                 required
@@ -106,13 +150,33 @@ const Waste: React.FC = () => {
             </div>
           </div>
         )}
-        <div className="field">
+        <div className="field is-grouped">
           <div className="control">
             <button className="button is-primary" type="submit">
-              Log Waste
+              Log Data
+            </button>
+          </div>
+          <div className="control">
+            <button className="button is-primary" type="button" onClick={calculateTokens}>
+              Calculate Tokens
             </button>
           </div>
         </div>
+        <div className="field">
+          <label className="label">Calculated Tokens</label>
+          <div className="control">
+            <input className="input" type="number" value={calculatedTokens} readOnly />
+          </div>
+        </div>
+        {calculatedTokens > 0 && (
+          <div className="field">
+            <div className="control">
+              <button className="button is-primary" type="button" onClick={completeTransaction}>
+                Complete Transaction
+              </button>
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );

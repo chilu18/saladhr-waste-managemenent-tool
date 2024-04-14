@@ -1,17 +1,12 @@
-// import { ethers } from "ethers";
-// import { ethers } from "hardhat";
-const { ethers } = require("hardhat");
+import { ethers } from 'ethers';
+import { GreenToken__factory, GreenToken } from './typechain-types';
 
-import {GreenToken} from "../typechain-types";
-
-const mint_and_send_tokens = async (numTokens: number, accountAddress: string) => {
+export const mint_and_send_tokens = async (numTokens: number, accountAddress: string) => {
   // Mint Tokens using supplier funds
-  const GreenTokenFactory = await ethers.getContractFactory("GreenToken");
-  const greenToken = GreenTokenFactory.attach("0xEb4B1a7768bA4Cefb12Af81e786911f98AEB3C1D") as GreenToken;
+  const GreenTokenFactory = GreenToken__factory.connect("0xEb4B1a7768bA4Cefb12Af81e786911f98AEB3C1D", ethers.getDefaultProvider());
+  const greenToken: GreenToken = GreenTokenFactory.attach("0xEb4B1a7768bA4Cefb12Af81e786911f98AEB3C1D") as GreenToken;
 
-  const mint_transaction = await greenToken.buy({
-      value: ethers.parseEther(String(numTokens))
-  });
+  const mint_transaction = await greenToken.buy({ value: ethers.parseEther(String(numTokens)) });
   await mint_transaction.wait(1);
 
   const balance_before = await greenToken.balanceOf(accountAddress);
@@ -22,10 +17,9 @@ const mint_and_send_tokens = async (numTokens: number, accountAddress: string) =
 
   const balance_after = await greenToken.balanceOf(accountAddress);
   console.log("GreenToken balance after: ", balance_after);
+};
 
-}
-
-function calculate_num_tokens(inWeight: number, outWeight: number): number {
+export function calculate_num_tokens(inWeight: number, outWeight: number): number {
   const numTokens = Math.round(((inWeight - outWeight) / inWeight) * 100);
   return numTokens;
 }
