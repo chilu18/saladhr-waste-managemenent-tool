@@ -47,6 +47,7 @@ const Waste: React.FC = () => {
     const outWeight = parseFloat(manualWeight);
     const tokens = calculate_num_tokens(inWeight, outWeight);
     setCalculatedTokens(tokens);
+    console.log('Tokens calculated successfully');
   };
 
   const completeTransaction = async () => {
