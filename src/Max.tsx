@@ -7,9 +7,6 @@ const Max: React.FC = () => {
   return (
     <section className="section">
       <div className="container">
-        <Link to="/" className="button is-link is-light">
-          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp;Back to Dashboard
-        </Link>
         <br></br>
         <h1 className="title">Max</h1>
         <div className="columns">
@@ -46,7 +43,7 @@ const Max: React.FC = () => {
                   <FontAwesomeIcon icon={faLightbulb} /> Recommendations
                 </p>
                 <p className="subtitle">Get personalized recommendations for optimizing your supplies.</p>
-                <Link to="/recommendations" className="button is-primary">
+                <Link to="/max-recommendations" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
@@ -54,6 +51,10 @@ const Max: React.FC = () => {
           </div>
         </div>
       </div>
+      <div><br></br></div>
+      <Link to="/" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp;Back to Dashboard
+        </Link>
     </section>
   );
 };

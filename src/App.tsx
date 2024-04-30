@@ -9,6 +9,9 @@ import Supplies from './Supplies';
 import Waste from './Waste';
 import WasteHistory from './WasteHistory';
 import SupplyHistory from './SupplyHistory';
+import MaxRecommendations from './MaxRecommendations';
+import MarcelRecommendations from './MarcelRecommendations';
+import MaisyRecommendations from './MaisylRecommendations';
 import 'bulma/css/bulma.min.css';
 
 const App: React.FC = () => {
@@ -44,6 +47,9 @@ const App: React.FC = () => {
           <Route path="/waste" element={<Waste />} />
           <Route path="/waste-history" element={<WasteHistory />} />
           <Route path="/supply-history" element={<SupplyHistory />} />
+          <Route path="/max-recommendations" element={<MaxRecommendations />} />
+          <Route path="/maisy-recommendations" element={<MaisyRecommendations />} />
+          <Route path="/marcel-recommendations" element={<MarcelRecommendations />} />
           {/* Add more routes for other components */}
         </Routes>
       </div>
