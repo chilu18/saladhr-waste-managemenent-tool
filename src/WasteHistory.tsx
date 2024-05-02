@@ -22,39 +22,45 @@ const WasteHistory: React.FC = () => {
         </h1>
         <div className="card">
           <div className="card-content">
-            <div className="table-container">
-              <table className="table is-striped is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Waste (kg)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {dummyData.map((entry, index) => (
-                    <tr key={index}>
-                      <td>{entry.date}</td>
-                      <td>{entry.waste}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="chart-container">
-              <LineChart width={600} height={300} data={dummyData}>
-                <XAxis dataKey="date" />
-                <YAxis />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="waste" stroke="#8884d8" activeDot={{ r: 8 }} />
-              </LineChart>
+            <div className="columns">
+              <div className="column">
+                <div className="table-container">
+                  <table className="table is-striped is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Waste (kg)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {dummyData.map((entry, index) => (
+                        <tr key={index}>
+                          <td>{entry.date}</td>
+                          <td>{entry.waste}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="column">
+                <div className="chart-container">
+                  <LineChart width={600} height={300} data={dummyData}>
+                    <XAxis dataKey="date" />
+                    <YAxis />
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="waste" stroke="#8884d8" activeDot={{ r: 8 }} />
+                  </LineChart>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div><br></br></div>
-        <Link to="/" className="button is-link is-light">
-          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Dashboard
+        <Link to="/maisy" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Maisy
         </Link>
       </div>
     </section>

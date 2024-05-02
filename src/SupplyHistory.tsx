@@ -22,39 +22,45 @@ const SupplyHistory: React.FC = () => {
         </h1>
         <div className="card">
           <div className="card-content">
-            <div className="table-container">
-              <table className="table is-striped is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Supply (units)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {dummyData.map((entry, index) => (
-                    <tr key={index}>
-                      <td>{entry.date}</td>
-                      <td>{entry.supply}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="chart-container">
-              <BarChart width={600} height={300} data={dummyData}>
-                <XAxis dataKey="date" />
-                <YAxis />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="supply" fill="#8884d8" />
-              </BarChart>
+            <div className="columns">
+              <div className="column">
+                <div className="table-container">
+                  <table className="table is-striped is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Supply (units)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {dummyData.map((entry, index) => (
+                        <tr key={index}>
+                          <td>{entry.date}</td>
+                          <td>{entry.supply}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="column">
+                <div className="chart-container">
+                  <BarChart width={600} height={300} data={dummyData}>
+                    <XAxis dataKey="date" />
+                    <YAxis />
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="supply" fill="#8884d8" />
+                  </BarChart>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div><br></br></div>
-        <Link to="/" className="button is-link is-light">
-          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Dashboard
+        <Link to="/max" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Max
         </Link>
       </div>
     </section>

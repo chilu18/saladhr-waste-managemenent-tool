@@ -12,7 +12,11 @@ import SupplyHistory from './SupplyHistory';
 import MaxRecommendations from './MaxRecommendations';
 import MarcelRecommendations from './MarcelRecommendations';
 import MaisyRecommendations from './MaisylRecommendations';
+import SupplyList from './SupplyList';
 import 'bulma/css/bulma.min.css';
+import WasteList from './WasteList';
+import GreenTokenDash from './GreenTokenDash';
+import GreenTokenAnalytics from './GreenTokenAnalytics';
 
 const App: React.FC = () => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
@@ -44,12 +48,16 @@ const App: React.FC = () => {
           <Route path="/maisy" element={<Maisy />} />
           <Route path="/marcel" element={<Marcel />} />
           <Route path="/supplies" element={<Supplies />} />
+          <Route path="/supply-list" element={<SupplyList />} />
           <Route path="/waste" element={<Waste />} />
           <Route path="/waste-history" element={<WasteHistory />} />
+          <Route path="/waste-list" element={<WasteList />} />
           <Route path="/supply-history" element={<SupplyHistory />} />
           <Route path="/max-recommendations" element={<MaxRecommendations />} />
           <Route path="/maisy-recommendations" element={<MaisyRecommendations />} />
           <Route path="/marcel-recommendations" element={<MarcelRecommendations />} />
+          <Route path="/green-tokens" element={<GreenTokenDash />} />
+          <Route path="/green-token-analytics" element={<GreenTokenAnalytics />} />
           {/* Add more routes for other components */}
         </Routes>
       </div>

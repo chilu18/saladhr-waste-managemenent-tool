@@ -17,7 +17,7 @@ const Max: React.FC = () => {
                   <FontAwesomeIcon icon={faBoxOpen} /> Supplies
                 </p>
                 <p className="subtitle">Manage and track your supplies inventory.</p>
-                <Link to="/supplies" className="button is-primary">
+                <Link to="/supply-list" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
@@ -27,7 +27,7 @@ const Max: React.FC = () => {
             <div className="card">
               <div className="card-content">
                 <p className="title">
-                  <FontAwesomeIcon icon={faHistory} /> Supply History
+                  <FontAwesomeIcon icon={faHistory} /> Supply Analytics
                 </p>
                 <p className="subtitle">View and analyze your supply usage history.</p>
                 <Link to="/supply-history" className="button is-primary">

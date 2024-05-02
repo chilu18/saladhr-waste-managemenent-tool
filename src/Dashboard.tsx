@@ -42,7 +42,7 @@ const Dashboard: React.FC = () => {
                 <p className="title">
                   <FontAwesomeIcon icon={faTrophy} /> Marcel
                 </p>
-                <p className="subtitle">Your carbon credits, track your carbon credits like never before.</p>
+                <p className="subtitle">Track Green tokens andyour sustainability efforts like never before.</p>
                 <Link to="/marcel" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>

@@ -14,10 +14,10 @@ const Marcel: React.FC = () => {
             <div className="card">
               <div className="card-content">
                 <p className="title">
-                  <FontAwesomeIcon icon={faLeaf} /> Carbon Credits
+                  <FontAwesomeIcon icon={faLeaf} /> Green Tokens
                 </p>
-                <p className="subtitle">Manage and track your carbon credits and offsetting.</p>
-                <Link to="/carbon-credits" className="button is-primary">
+                <p className="subtitle">Manage and track your sustianbility plan and green tokens.</p>
+                <Link to="/green-tokens" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
@@ -27,10 +27,10 @@ const Marcel: React.FC = () => {
             <div className="card">
               <div className="card-content">
                 <p className="title">
-                  <FontAwesomeIcon icon={faHistory} /> Carbon History
+                  <FontAwesomeIcon icon={faHistory} /> Token Analytics
                 </p>
-                <p className="subtitle">View and analyze your carbon credit history.</p>
-                <Link to="/carbon-credit-history" className="button is-primary">
+                <p className="subtitle">View and analyze your Green Tokens.</p>
+                <Link to="/green-token-analytics" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
@@ -42,7 +42,7 @@ const Marcel: React.FC = () => {
                 <p className="title">
                   <FontAwesomeIcon icon={faLightbulb} /> Recommendations
                 </p>
-                <p className="subtitle">Get personalized recommendations for offsetting carbon emissions.</p>
+                <p className="subtitle">Get personalized recommendations for hitting your sustianbility targets.</p>
                 <Link to="/marcel-recommendations" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>

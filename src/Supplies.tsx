@@ -119,8 +119,8 @@ const Supplies: React.FC = () => {
           </div>
         </div>
         <div><br></br></div>
-        <Link to="/max" className="button is-link is-light">
-          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Max
+        <Link to="/supply-list" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Supply List
         </Link>
       </div>
     </section>

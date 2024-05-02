@@ -183,8 +183,8 @@ const Waste: React.FC = () => {
           </div>
         </div>
         <div><br></br></div>
-        <Link to="/maisy" className="button is-link is-light">
-          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Maisy
+        <Link to="/waste-list" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Waste List
         </Link>
       </div>
     </section>

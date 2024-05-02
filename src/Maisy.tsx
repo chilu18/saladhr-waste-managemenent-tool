@@ -17,7 +17,7 @@ const Maisy: React.FC = () => {
                   <FontAwesomeIcon icon={faTrash} /> Waste
                 </p>
                 <p className="subtitle">Track and manage your waste generation.</p>
-                <Link to="/waste" className="button is-primary">
+                <Link to="/waste-list" className="button is-primary">
                   Go <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
@@ -27,7 +27,7 @@ const Maisy: React.FC = () => {
             <div className="card">
               <div className="card-content">
                 <p className="title">
-                  <FontAwesomeIcon icon={faHistory} /> Waste History
+                  <FontAwesomeIcon icon={faHistory} /> Waste Analytics
                 </p>
                 <p className="subtitle">View and analyze your waste generation history.</p>
                 <Link to="/waste-history" className="button is-primary">

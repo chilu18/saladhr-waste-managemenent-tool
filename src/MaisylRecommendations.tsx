@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faSpinner, faTimes } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 const MaisyRecommendations: React.FC = () => {
@@ -119,6 +120,10 @@ const MaisyRecommendations: React.FC = () => {
           </div>
         </div>
       </div>
+      <div><br></br></div>
+        <Link to="/maisy" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Maisy
+        </Link>
     </section>
   );
 };

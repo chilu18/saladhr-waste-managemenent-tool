@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const MaxRecommendations: React.FC = () => {
   const [input1, setInput1] = useState('');
@@ -82,6 +83,14 @@ const MaxRecommendations: React.FC = () => {
           </div>
         </div>
       </div>
+      <div><br></br></div>
+     <div>
+        <p>
+        <Link to="/max" className="button is-link is-light">
+          <FontAwesomeIcon icon={faTimes} /> &nbsp;&nbsp; Back to Max
+        </Link>
+        </p>
+     </div>
     </section>
   );
 };
