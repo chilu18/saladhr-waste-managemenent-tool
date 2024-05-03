@@ -14,22 +14,22 @@ interface Waste {
 const WasteList: React.FC = () => {
   const wastes: Waste[] = [
     {
-      name: 'Waste 1',
-      description: 'This is a sample waste',
+      name: 'Apples',
+      description: 'Pink lady apples from New Zealand',
       inputWeight: 10,
       outputWeight: 5,
       calculatedTokens: 20,
     },
     {
-      name: 'Waste 2',
-      description: 'Another sample waste',
+      name: 'Chocolates',
+      description: 'Lindt Chocolate from Swizterland',
       inputWeight: 15,
       outputWeight: 8,
       calculatedTokens: 25,
     },
     {
-      name: 'Waste 3',
-      description: 'Yet another sample waste',
+      name: 'Ice Cream',
+      description: 'Ice Cream from Italy',
       inputWeight: 20,
       outputWeight: 12,
       calculatedTokens: 30,
@@ -45,6 +45,10 @@ const WasteList: React.FC = () => {
         </h1>
         <div className="card">
           <div className="card-content">
+          <div><br></br></div>
+        <Link to="/waste" className="button is-primary">
+          <FontAwesomeIcon icon={faPlusCircle} /> &nbsp;&nbsp; Add Waste
+        </Link>
             <table className="table is-striped is-fullwidth">
               <thead>
                 <tr>
@@ -68,11 +72,15 @@ const WasteList: React.FC = () => {
               </tbody>
             </table>
           </div>
+          <div className="control">
+                <button
+                  className="button is-primary"
+                  type="button"
+                >
+                  Generate Recommendation
+                </button>
+              </div>
         </div>
-        <div><br></br></div>
-        <Link to="/waste" className="button is-primary">
-          <FontAwesomeIcon icon={faPlusCircle} /> &nbsp;&nbsp; Add Waste
-        </Link>
       </div>
       <div><br></br></div>
         <Link to="/maisy" className="button is-link is-light">

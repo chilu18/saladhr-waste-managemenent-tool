@@ -14,6 +14,7 @@ const Waste: React.FC = () => {
   const [inputWeight, setInputWeight] = useState('');
   const [calculatedTokens, setCalculatedTokens] = useState(0);
   const [walletAddress, setWalletAddress] = useState('');
+  const [transactionComplete, setTransactionComplete] = useState(false); // State for transaction completion
 
   const fetchScaleWeight = async () => {
     try {
@@ -60,6 +61,7 @@ const Waste: React.FC = () => {
         setWalletAddress(walletAddress);
         await mint_and_send_tokens(calculatedTokens, walletAddress);
         console.log('Tokens sent successfully');
+        setTransactionComplete(true); // Set transaction completion state
       } catch (error) {
         console.error('Failed to send tokens:', error);
       }
@@ -73,6 +75,7 @@ const Waste: React.FC = () => {
         <h1 className="title">
           <FontAwesomeIcon icon={faTrash} /> Waste
         </h1>
+        {transactionComplete && <div className="notification is-success">Transaction Sent!</div>} {/* Confirmation message */}
         <div className="card">
           <div className="card-content">
             <div className="field">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faChartPie, faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faChartPie, faCoins, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const GreenTokenDash: React.FC = () => {
@@ -66,8 +66,8 @@ const GreenTokenDash: React.FC = () => {
       </div>
       <div><br></br></div>
       <div className="has-text-centered mt-4">
-          <Link to="/" className="button is-link is-light">
-            <FontAwesomeIcon icon={faChartPie} className="mr-2" /> Back to Dashboard
+          <Link to="/marcel" className="button is-link is-light">
+            <FontAwesomeIcon icon={faTimes} className="mr-2" /> Back to Marcel
           </Link>
         </div>
     </section>

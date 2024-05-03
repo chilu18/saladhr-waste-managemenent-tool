@@ -55,11 +55,11 @@ const MaisyRecommendations: React.FC = () => {
         <div className="card">
           <div className="card-content">
             <p className="subtitle">
-              Get personalized recommendations for optimizing your supplies.
+              Get personalized recommendations for optimizing your Waste.
             </p>
             <form>
               <div className="field">
-                <label className="label">Input 1:</label>
+                <label className="label">Priority 1:</label>
                 <div className="control">
                   <input
                     className="input"
@@ -70,7 +70,7 @@ const MaisyRecommendations: React.FC = () => {
                 </div>
               </div>
               <div className="field">
-                <label className="label">Input 2:</label>
+                <label className="label">Priority 2:</label>
                 <div className="control">
                   <input
                     className="input"
@@ -81,7 +81,7 @@ const MaisyRecommendations: React.FC = () => {
                 </div>
               </div>
               <div className="field">
-                <label className="label">Input 3:</label>
+                <label className="label">Priority 3:</label>
                 <div className="control">
                   <input
                     className="input"

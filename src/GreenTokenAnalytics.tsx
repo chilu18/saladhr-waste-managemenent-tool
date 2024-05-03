@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartBar, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { faChartBar, faChartPie, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { PieChart, Pie, Cell } from 'recharts';
@@ -71,9 +71,17 @@ const GreenTokenAnalytics: React.FC = () => {
             </div>
           </div>
         </div>
+        <div className="control">
+                <button
+                  className="button is-primary"
+                  type="button"
+                >
+                  Generate Recommendation
+                </button>
+              </div>
         <div className="has-text-centered mt-4">
-          <Link to="/" className="button is-link is-light">
-            <FontAwesomeIcon icon={faChartPie} className="mr-2" /> Back to Dashboard
+          <Link to="/marcel" className="button is-link is-light">
+            <FontAwesomeIcon icon={faTimes} className="mr-2" /> Back to Marcel
           </Link>
         </div>
       </div>

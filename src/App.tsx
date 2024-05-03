@@ -17,6 +17,7 @@ import 'bulma/css/bulma.min.css';
 import WasteList from './WasteList';
 import GreenTokenDash from './GreenTokenDash';
 import GreenTokenAnalytics from './GreenTokenAnalytics';
+import VisionAI from './VisionAI';
 
 const App: React.FC = () => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
@@ -58,6 +59,7 @@ const App: React.FC = () => {
           <Route path="/marcel-recommendations" element={<MarcelRecommendations />} />
           <Route path="/green-tokens" element={<GreenTokenDash />} />
           <Route path="/green-token-analytics" element={<GreenTokenAnalytics />} />
+          <Route path="/vision-ai" element={<VisionAI />} />
           {/* Add more routes for other components */}
         </Routes>
       </div>

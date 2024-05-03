@@ -1,0 +1,10 @@
+/* SupplyList.module.css */
+.recommendations {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recommendationItem {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }

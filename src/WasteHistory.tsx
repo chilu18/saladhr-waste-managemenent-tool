@@ -56,6 +56,14 @@ const WasteHistory: React.FC = () => {
                 </div>
               </div>
             </div>
+            <div className="control">
+                <button
+                  className="button is-primary"
+                  type="button"
+                >
+                  Generate Recommendation
+                </button>
+              </div>
           </div>
         </div>
         <div><br></br></div>

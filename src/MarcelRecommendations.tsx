@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 const MarcelRecommendations: React.FC = () => {
   const [input1, setInput1] = useState('');
@@ -33,11 +34,11 @@ const MarcelRecommendations: React.FC = () => {
         <div className="card">
           <div className="card-content">
             <p className="subtitle">
-              Get personalized recommendations for optimizing your supplies.
+              Get personalized recommendations for optimizing your Green Tokens.
             </p>
             <form>
               <div className="field">
-                <label className="label">Input 1:</label>
+                <label className="label">Priority 1:</label>
                 <div className="control">
                   <input
                     className="input"
@@ -48,7 +49,7 @@ const MarcelRecommendations: React.FC = () => {
                 </div>
               </div>
               <div className="field">
-                <label className="label">Input 2:</label>
+                <label className="label">Priority 2:</label>
                 <div className="control">
                   <input
                     className="input"
@@ -59,7 +60,7 @@ const MarcelRecommendations: React.FC = () => {
                 </div>
               </div>
               <div className="field">
-                <label className="label">Input 3:</label>
+                <label className="label">Priority 3:</label>
                 <div className="control">
                   <input
                     className="input"
@@ -82,6 +83,11 @@ const MarcelRecommendations: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className="has-text-centered mt-4">
+          <Link to="/marcel" className="button is-link is-light">
+            <FontAwesomeIcon icon={faTimes} className="mr-2" /> Back to Marcel
+          </Link>
+        </div>
     </section>
   );
 };

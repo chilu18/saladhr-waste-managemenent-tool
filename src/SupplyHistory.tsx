@@ -57,6 +57,14 @@ const SupplyHistory: React.FC = () => {
               </div>
             </div>
           </div>
+          <div className="control">
+                <button
+                  className="button is-primary"
+                  type="button"
+                >
+                  Generate Recommendation
+                </button>
+              </div>
         </div>
         <div><br></br></div>
         <Link to="/max" className="button is-link is-light">
